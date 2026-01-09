@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah Shop - Loja de Peças</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .buy-button {
+            display: inline-block;
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .buy-button:hover {
+            background-color: #4cae4c;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Noah Shop</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Início</a>
+            <a href="{{ url_for('admin') }}">Admin (Pedidos)</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Produtos em Destaque</h2>
+        <div class="product-list">
+
+            <div class="product-card">
+                <h3>Antena Corta Pipa Reforçada</h3>
+                <p>Antena de alta resistência, essencial para sua segurança contra linhas com cerol. Fácil instalação e design discreto.</p>
+                <p><strong>R$ 20,00</strong></p>
+                <form action="{{ url_for('comprar') }}" method="POST">
+                    <input type="hidden" name="produto" value="Antena Corta Pipa">
+                    <input type="hidden" name="valor" value="20.00">
+                    
+                    <label for="nome1">Nome:</label>
+                    <input type="text" id="nome1" name="nome" required><br><br>
+                    
+                    <label for="email1">Email:</label>
+                    <input type="email" id="email1" name="email" required><br><br>
+                    
+                    <button type="submit" class="buy-button">Comprar Agora</button>
+                </form>
+            </div>
+
+            <div class="product-card">
+                <h3>Slider de Carenagem Universal</h3>
+                <p>Proteção máxima para sua carenagem em caso de quedas. Disponível em várias cores. Excelente custo-benefício.</p>
+                <p><strong>R$ 85,50</strong></p>
+                <form action="{{ url_for('comprar') }}" method="POST">
+                    <input type="hidden" name="produto" value="Slider de Carenagem">
+                    <input type="hidden" name="valor" value="85.50">
+                    
+                    <label for="nome2">Nome:</label>
+                    <input type="text" id="nome2" name="nome" required><br><br>
+                    
+                    <label for="email2">Email:</label>
+                    <input type="email" id="email2" name="email" required><br><br>
+                    
+                    <button type="submit" class="buy-button">Comprar Agora</button>
+                </form>
+            </div>
+
+            </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Noah Shop. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
