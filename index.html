@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah Shop</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Estilos Globais */
+        body {
+            background-color: #222222; 
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0; 
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Estilos do Cabeçalho */
+        header {
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #E0E0E0; 
+            margin-top: 5vh; 
+            margin-bottom: 5px; 
+            font-size: 2.5em; 
+        }
+        
+        header p {
+            color: #CCCCCC;
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        .cart-icon {
+            color: #4CAF50; 
+            margin-right: 10px;
+        }
+
+        /* Container de Produtos (Layout: Lista vertical) */
+        .product-list {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px;
+            gap: 30px; 
+        }
+
+        .product-item {
+            background-color: #333333; 
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%; 
+            max-width: 500px; 
+            text-align: left;
+            display: flex; 
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+        }
+
+        .product-item img {
+            width: 100%; 
+            height: auto;
+            object-fit: cover; 
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .product-item h2 {
+            color: #4CAF50;
+            font-size: 1.6em;
+            margin-top: 0;
+        }
+        
+        .product-description, .feature-section {
+            color: #C0C0C0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .feature-section strong {
+            color: #FFD700; 
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .product-features ul {
+            list-style: none; 
+            padding-left: 0;
+        }
+        
+        .product-features ul li {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%234CAF50' d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E") no-repeat left center; 
+            background-size: 12px;
+            padding-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #FFD700; 
+            font-size: 2.0em;
+            margin: 10px 0 20px 0;
+        }
+        
+        .buy-button {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s; 
+        }
+
+        .buy-button:hover {
+            background-color: #45A049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            <i class="fas fa-shopping-cart cart-icon"></i> Noah Shop
+        </h1>
+        <p>Encontre os melhores produtos com a melhor qualidade!</p>
+    </header>
+    
+    <div class="product-list">
+        
+        <div class="product-item">
+            <img src="{{ url_for('static', filename='product_image.png') }}" alt="Antena Corta Pipa Moto Retrátil">
+            
+            <h2>Antena Corta Pipa Moto Retrátil Anti Cerol Aço Inox Guidão</h2>
+            
+            <p class="product-description">Com designer moderno e seguro, a ANTENA CORTA PIPAS P/GUIDÃO feita em aço inoxidável corta a qualquer linha, evitando que a mesma escape e cause acidentes. Além de permitir uma fácil retração dos estágios, o produto é resistente e permite maior segurança. Devido sua eficácia, tornou obrigatório para moto fretistas em todo território nacional. Não hesite em se proteger!!</p>
+            
+            <div class="product-features">
+                <p><strong>CARACTERÍSTICAS:</strong></p>
+                <ul>
+                    <li>Antena Retrátil e Reclinável **6 Estágios PARA GUIDÃO**</li>
+                    <li>Produzida em Aço Inoxidável (Tubos) e Alumínio (Abraçadeira)</li>
+                    <li>Fechada: 20 cm | Abertura total (6 estágios): 66 cm</li>
+                    <li>Acompanha chave allen nº 4 e redutor em P.P 7/8 para adaptação em guidões de 7/8 polegadas e 1"</li>
+                    <li>Cores: Preto e Cromado</li>
+                </ul>
+            </div>
+
+            <div class="price">R$ 20,00</div>
+            
+            <a href="{{ url_for('checkout', valor='20.00', produto='Antena+Corta+Pipa') }}" class="buy-button">Comprar Agora</a>
+        </div>
+        
+        <div class="product-item">
+            <img src="{{ url_for('static', filename='placeholder_2.png') }}" alt="Manopla e Pesinho PCX"> 
+            
+            <h2>Manopla + pesinho PCX cromado com bucha expansiva funcional decorativo</h2>
+            
+            <div class="feature-section">
+                <strong>⭐Produto Brasileiro⭐</strong>
+                <p>Este produto é produzido no Brasil. Garante total segurança e confiabilidade. Perfeito para guidão de bicicleta oco, com encaixe perfeito.</p>
+            </div>
+            
+            <div class="feature-section">
+                <strong>⭐Bucha Expansiva⭐</strong>
+                <p>Acompanha bucha totalmente segura e expansiva. Fixa o produto da melhor maneira, garantindo sua segurança e funcionalidade.</p>
+            </div>
+            
+            <div class="feature-section">
+                <strong>⭐Segurança e Confiança⭐</strong>
+                <p>Produtos totalmente seguros e confiáveis. Ideal para quem busca uma solução funcional e segura para o seu guidão de bicicleta.</p>
+            </div>
+
+            <div class="price">R$ 55,00</div>
+            
+            <a href="{{ url_for('checkout', valor='55.00', produto='Manopla+PCX') }}" class="buy-button">Comprar Agora</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
